@@ -21,7 +21,7 @@ Minimum path: Problem Statement + Release Planning + Product Document.
 ## Install
 
 ```bash
-git clone <repo-url> simpleprod
+git clone https://github.com/martparve/simpleprod.git
 cd simpleprod
 ./install.sh
 ```
@@ -29,7 +29,7 @@ cd simpleprod
 Or manually:
 
 ```bash
-claude plugins marketplace add <github-user>/simpleprod
+claude plugins marketplace add martparve/simpleprod
 claude plugins install simpleprod@simpleprod --scope user
 ```
 
