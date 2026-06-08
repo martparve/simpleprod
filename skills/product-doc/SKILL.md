@@ -1,9 +1,10 @@
 ---
 name: product-doc
 description: >
-  Assembles all discovery artifacts into the final Product Document. Reads
-  everything in product/, fills gaps from existing artifacts (marking inferences),
-  compiles the PRD for the active scope, and hands off to implementation.
+  Assembles all discovery artifacts into a value-driven Product Document.
+  Reads everything in product/, fills gaps from existing artifacts (marking
+  inferences), drafts vision, compiles outcome-driven requirements, and
+  hands off to implementation.
 ---
 
 # Product Document - Assembly and Handoff
@@ -14,10 +15,9 @@ Follow the personality rules from the root CLAUDE.md. One question at a time. No
 
 ## Step 1: Check mandatory prerequisites
 
-Both of these must exist. Check by reading the files:
+This must exist. Check by reading the file:
 
 - `product/problem-statement.md` - REQUIRED. If missing: "You can't write a product doc without a problem statement. That's the foundation." Then invoke `simpleprod:problem-statement` and stop.
-- `product/release-plan.md` - REQUIRED. If missing: "You need a release plan before we assemble the product doc. Without scoped milestones, this is just a wish list." Then invoke `simpleprod:release-planning` and stop.
 
 ## Step 2: Read all artifacts
 
@@ -25,7 +25,6 @@ Read everything in the `product/` directory. The full set:
 
 **Mandatory (already confirmed in Step 1):**
 - `product/problem-statement.md`
-- `product/release-plan.md`
 
 **Optional - read if they exist:**
 - `product/competitive-research.md`
@@ -64,25 +63,31 @@ Present the vision to the user. Then challenge it:
 
 Keep questioning until the vision is specific and differentiated. One question at a time. When the user gives a sharp answer, update the vision and move on.
 
-## Step 5: Compile PRD
+## Step 5: Define what to build - value and outcomes first
 
-Identify the active scope from `product/release-plan.md`. On first run, this is typically the MVP or first milestone.
+Work with the user to define what the product should do. Structure this around value and outcomes, not feature lists.
 
-For each user story in the active scope, expand it into:
+### Identify the highest-value outcomes
 
-### User story format
-```
-**As a** [persona], **I want to** [action], **so that** [outcome].
-```
+Ask: "What are the 2-4 outcomes this product must deliver to be worth using?" Frame outcomes as changes in the user's world, not system behaviors. Example: "User saves 2 hours per week on expense tracking" not "System has expense tracking feature."
 
-### For each story, specify:
-1. **What does the user do?** The concrete interaction - what they click, type, see, or trigger.
-2. **What does the system do?** The behavior behind the interaction - what happens in response.
-3. **Acceptance criteria** - testable conditions that prove the story works. Each criterion should be a yes/no check.
+Use AskUserQuestion to propose outcomes based on the problem statement and JTBD (if available). Challenge outcomes that are vague or not tied to the problem.
 
-Keep it concise. This is a hackathon spec, not an enterprise requirements document. If a story needs more than 5 acceptance criteria, it is probably too big - split it.
+### For each outcome, define what to build
 
-Present the compiled PRD to the user. Ask: "Does this match what you'd actually build first? Anything missing, or anything here you wouldn't ship in the first version?"
+For each outcome, expand into concrete capabilities:
+
+1. **What does the user do?** The concrete interaction.
+2. **What does the system do?** The behavior behind the interaction.
+3. **How do we know it worked?** Acceptance criteria - testable conditions. Each criterion should be a yes/no check.
+
+### Prioritize by value, not by ease
+
+Ask the user to rank outcomes by value to the end user. Do not inject your own assumptions about what belongs in scope or out of scope. If the user says authentication matters for their product, it matters. If they say a notification system is high value, it is. Your job is to challenge whether the value claim is grounded in the problem statement - not to impose generic rules about what's important.
+
+The test for each capability: "Does this directly contribute to an outcome the user cares about?" If yes, it stays. If it's unclear, challenge the user to connect it to an outcome.
+
+Present the compiled requirements to the user. Ask: "Does this match what you'd actually build? Anything missing, or anything here that doesn't serve your users?"
 
 ## Step 6: Write the artifact
 
@@ -107,21 +112,22 @@ Write the output to `product/PRODUCT.md` using this format:
 ## Competitive Landscape
 [From product/competitive-research.md or "Not researched."]
 
-## Release Plan
-[Summary of milestones from product/release-plan.md. Include scope names and key deliverables.]
+## Outcomes and Requirements
 
-## PRD - [Active Scope Name]
-### [User Story 1 title]
-**As a** [persona], **I want to** [action], **so that** [outcome].
-
+### [Outcome 1: description]
+#### [Capability title]
 **User does:** [concrete interaction]
 **System does:** [behavior]
 **Acceptance criteria:**
 - [ ] [Criterion 1]
 - [ ] [Criterion 2]
 
-### [User Story 2 title]
+### [Outcome 2: description]
+#### [Capability title]
 ...
+
+## Open Questions
+[Unvalidated assumptions, risks, things that need user research]
 ```
 
 Use the actual current date in the header. Use the real product name from the artifacts (or ask the user if none is established).

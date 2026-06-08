@@ -23,7 +23,6 @@ Look in the `product/` directory (relative to the project root) for these files:
 | Jobs to be Done      | `product/jtbd.md`                 |
 | Personas             | `product/personas.md`             |
 | Interview Script     | `product/interview-script.md`     |
-| Release Planning     | `product/release-plan.md`         |
 | Product Document     | `product/PRODUCT.md`              |
 
 Use `ls product/` (or equivalent) to check which files exist. If the `product/` directory does not exist, treat all steps as pending.
@@ -40,10 +39,9 @@ simpleprod - Product Discovery
 [    ] Jobs to be Done           product/jtbd.md
 [    ] Personas                  product/personas.md
 [    ] Interview Script          product/interview-script.md
-[    ] Release Planning          product/release-plan.md
 [    ] Product Document          product/PRODUCT.md
 
-Minimum path: Problem Statement + Release Planning + Product Document
+Minimum path: Problem Statement + Product Document
 Recommended:  All steps in order
 ```
 
@@ -58,8 +56,7 @@ Walk the list top to bottom in this order:
 3. Jobs to be Done
 4. Personas
 5. Interview Script
-6. Release Planning
-7. Product Document
+6. Product Document
 
 The first step whose file does not exist is the recommended next step. Tell the user: "Next step: **[step name]**. Ready to start?"
 
@@ -72,7 +69,6 @@ The user may want to skip a step. Rules:
 ### Mandatory gates (cannot be skipped)
 
 - **Problem Statement** - "You can't skip this. Without a clear problem, everything downstream is guesswork. Let's do it."
-- **Release Planning** - "You can't skip this. Without a scoped plan, you'll build too much or the wrong thing. Let's do it."
 
 ### Skippable steps (one warning, then allow)
 
@@ -98,7 +94,6 @@ When the user agrees to a step (or you recommend one and they accept), invoke th
 | Jobs to be Done      | `simpleprod:jtbd`                   |
 | Personas             | `simpleprod:personas`               |
 | Interview Script     | `simpleprod:interview-script`       |
-| Release Planning     | `simpleprod:release-planning`       |
 | Product Document     | `simpleprod:product-doc`            |
 
 Use the Skill tool with the skill name from the table above.
@@ -112,5 +107,5 @@ When a skill finishes and returns control, re-invoke this root skill (`simplepro
 If the user tries to jump to coding at any point, check:
 
 1. Does `product/problem-statement.md` exist? If not: "You haven't clarified what problem you're solving. That's the fastest way to build something nobody wants. Let's start there."
-2. Does `product/release-plan.md` exist? If not: "You don't have a scoped plan. You'll build too much or the wrong thing. Let's scope this first."
+2. Does `product/PRODUCT.md` exist? If not: "You don't have a product document yet. Without clear outcomes and priorities, you'll build too much or the wrong thing. Let's finish discovery first."
 3. If both exist, let them code. The other artifacts are recommended but not mandatory.

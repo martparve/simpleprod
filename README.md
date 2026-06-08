@@ -13,10 +13,9 @@ simpleprod forces you through structured product discovery before you start codi
 3. **Jobs to be Done** - What progress are your users trying to make?
 4. **Personas** - Who specifically are you building for?
 5. **Interview Script** - How would you validate your assumptions?
-6. **Release Planning** - What's MVP? What's deferred? User Story Map.
-7. **Product Document** - Vision + PRD assembled from all the above.
+6. **Product Document** - Vision + outcome-driven requirements assembled from all the above.
 
-Minimum path: Problem Statement + Release Planning + Product Document.
+Minimum path: Problem Statement + Product Document.
 
 ## Install
 
