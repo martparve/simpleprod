@@ -1,0 +1,18 @@
+{
+  "name": "simpleprod",
+  "description": "Hackathon product management - teaches developers product thinking through opinionated multiple-choice questioning before they write code",
+  "version": "0.3.2",
+  "author": {
+    "name": "Mart Parve",
+    "email": "mparve@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "product-management",
+    "hackathon",
+    "discovery",
+    "prd",
+    "jtbd",
+    "multiple-choice"
+  ]
+}

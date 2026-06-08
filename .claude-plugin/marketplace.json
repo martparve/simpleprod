@@ -1,0 +1,20 @@
+{
+  "name": "simpleprod",
+  "description": "Hackathon product management plugin",
+  "owner": {
+    "name": "Mart Parve",
+    "email": "mparve@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "simpleprod",
+      "description": "Hackathon product management - teaches developers product thinking through opinionated multiple-choice questioning before they write code",
+      "version": "0.3.2",
+      "source": "./",
+      "author": {
+        "name": "Mart Parve",
+        "email": "mparve@gmail.com"
+      }
+    }
+  ]
+}
