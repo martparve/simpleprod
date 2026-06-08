@@ -20,13 +20,7 @@ Minimum path: Problem Statement + Release Planning + Product Document.
 
 ## Install
 
-```bash
-git clone https://github.com/martparve/simpleprod.git
-cd simpleprod
-./install.sh
-```
-
-Or manually:
+Copy paste this to Claude Code CLI and run:
 
 ```bash
 claude plugins marketplace add martparve/simpleprod
