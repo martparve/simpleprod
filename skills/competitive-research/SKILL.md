@@ -133,11 +133,47 @@ Once the user has articulated a differentiator (or consciously decided to procee
 ## Reasoning Trail
 [Key questions and answers from the session. Include the pushback and how the user responded. This is the audit trail for why this differentiator was accepted.]
 
-## Open Questions
-[Unvalidated claims the user made. Weak points in the differentiation argument. Things that need real-world validation.]
+> Open questions raised: [OQ ids] (see product/open-questions.md)
 ```
 
 Replace `[YYYY-MM-DD]` with today's date. Use the user's actual words for the differentiation claim - do not rewrite or polish them.
+
+## Open Questions: register, don't dump
+
+Do not write a prose `## Open Questions` section in this artifact. Record each
+unresolved unknown in the shared register `product/open-questions.md`.
+
+1. If `product/open-questions.md` does not exist, create it with this skeleton:
+
+   ```markdown
+   # Open Questions
+   > Maintained by simpleprod - the discovery risk register.
+   > Every question exits one way: answered, assigned a method, or accepted as risk.
+
+   ## Open
+
+   ## Closed
+   ```
+
+2. For each unknown, append one line under `## Open`, using the next free `OQ-N`
+   (read the current highest N in the file and add 1):
+
+   ```
+   - [ ] **OQ-N** (TYPE -> METHOD) <question> — _<this-skill-name>_
+   ```
+
+   TYPE -> METHOD is one of:
+   - `testable -> interview` - a behavioral claim a user interview can settle
+   - `technical -> spike` - a feasibility/engineering unknown
+   - `market -> research` - a market or competitor unknown
+   - `pricing -> test` - willingness to pay
+   - `accepted risk` - known, building anyway (place under `## Closed`, checked)
+
+3. Close the artifact with a one-line pointer instead of a section:
+
+   ```
+   > Open questions raised: OQ-1, OQ-4 (see product/open-questions.md)
+   ```
 
 ## Step 5: Return to hub
 
