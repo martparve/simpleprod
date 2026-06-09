@@ -52,6 +52,12 @@ Before writing any questions, list the riskiest assumptions from the existing ar
 - **Willingness to switch.** Even if alternatives are bad, will people change their behavior? Switching costs are real.
 - **Willingness to pay.** Would they pay for a solution, or is this a "nice to have" they'd only use if free?
 
+Before listing assumptions from scratch, read `product/open-questions.md` if it
+exists. Every open item tagged `(testable -> interview)` is an assumption that
+already needs an interview - pull those in as your starting set, and map each
+interview question you write back to the `OQ` ids it tests. Note the ids next to
+the relevant questions so synthesis can close them later.
+
 Present these assumptions to the user. Ask: "These are the assumptions your product rests on. Which ones have you validated with real people?" Wait for the answer.
 
 ### Step 2: Write 5-7 Questions
@@ -85,6 +91,45 @@ If the user wants to soften a question, remove a question, or make the interview
 Do not soften questions. The point is to get honest answers, not comfortable interviews.
 
 If the user has a legitimate concern about phrasing (e.g., the question is confusing or leading), fix the phrasing while keeping the sharpness.
+
+## Open Questions: register, don't dump
+
+Do not write a prose `## Open Questions` section in this artifact. Record each
+unresolved unknown in the shared register `product/open-questions.md`.
+
+1. If `product/open-questions.md` does not exist, create it with this skeleton:
+
+   ```markdown
+   # Open Questions
+   > Maintained by simpleprod - the discovery risk register.
+   > Every question exits one way: answered, assigned a method, or accepted as risk.
+
+   ## Open
+
+   ## Closed
+   ```
+
+2. For each unknown, append one line under `## Open`, using the next free `OQ-N`
+   (read the current highest N in the file and add 1):
+
+   ```
+   - [ ] **OQ-N** (TYPE -> METHOD) <question> — _<this-skill-name>_
+   ```
+
+   TYPE -> METHOD is one of:
+   - `testable -> interview` - a behavioral claim a user interview can settle
+   - `technical -> spike` - a feasibility/engineering unknown
+   - `market -> research` - a market or competitor unknown
+   - `pricing -> test` - willingness to pay
+   - `accepted risk` - known, building anyway (place under `## Closed`, checked)
+
+3. Close the artifact with a one-line pointer instead of a section:
+
+   ```
+   > Open questions raised: OQ-1, OQ-4 (see product/open-questions.md)
+   ```
+
+Use this when the interview surfaces an unknown that an interview cannot settle (a `technical -> spike`, `market -> research`, or `pricing -> test` item).
 
 ## Output
 
