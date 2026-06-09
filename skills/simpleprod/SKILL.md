@@ -40,12 +40,32 @@ simpleprod - Product Discovery
 [    ] Personas                  product/personas.md
 [    ] Interview Script          product/interview-script.md
 [    ] Product Document          product/PRODUCT.md
+Open questions: [N] ([M] still need validation)   product/open-questions.md
 
 Minimum path: Problem Statement + Product Document
 Recommended:  All steps in order
 ```
 
-Replace `[done]` or `[    ]` for each row based on actual file presence. The example above is just a template - fill it in from real data.
+Replace `[done]` or `[    ]` for each row based on actual file presence. The example above is just a template - fill it in from real data. Read `product/open-questions.md` if it exists; N = total items, M = items that still need validation (tagged testable/technical/market/pricing and not yet answered or accepted). If the file does not exist, show `Open questions: 0`.
+
+## Step 2a: Surface open questions and route
+
+If `product/open-questions.md` exists and has items under `## Open`, surface them
+here - do not make the user open the file:
+
+1. Show the count and the top few most pressing items (testable-and-unanswered
+   first; do not nag about accepted risks; cap at 3-4 lines).
+2. Recommend an opinionated next action that routes into the skill which closes
+   the item, using `AskUserQuestion`. Mapping:
+   - `testable -> interview` about user needs -> `simpleprod:user-insights`
+     (interview mode)
+   - `testable -> interview` about a riskiest assumption broadly ->
+     `simpleprod:interview-script`
+   - `technical -> spike` / `market -> research` / `pricing -> test` -> tell the
+     user this needs work outside simpleprod; leave it open, do not route.
+
+This runs every time the hub is invoked (session start and after each skill), so
+open questions are continuously visible and always come with a way to act.
 
 ## Step 3: Recommend the next step
 
