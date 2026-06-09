@@ -19,10 +19,10 @@ Look in the `product/` directory (relative to the project root) for these files:
 | Step                 | File                              |
 |----------------------|-----------------------------------|
 | Problem Statement    | `product/problem-statement.md`    |
+| Interview Script     | `product/interview-script.md`     |
 | Competitive Research | `product/competitive-research.md` |
 | User Insights        | `product/user-insights.md`        |
 | Personas             | `product/personas.md`             |
-| Interview Script     | `product/interview-script.md`     |
 | Product Document     | `product/PRODUCT.md`              |
 
 Use `ls product/` (or equivalent) to check which files exist. If the `product/` directory does not exist, treat all steps as pending.
@@ -35,10 +35,10 @@ Display this tracker, marking each step based on whether the file exists:
 simpleprod - Product Discovery
 ==============================
 [done] Problem Statement        product/problem-statement.md
+[    ] Interview Script          product/interview-script.md
 [    ] Competitive Research      product/competitive-research.md
 [    ] User Insights             product/user-insights.md
 [    ] Personas                  product/personas.md
-[    ] Interview Script          product/interview-script.md
 [    ] Product Document          product/PRODUCT.md
 Open questions: [M] open / [K] closed   product/open-questions.md
 
@@ -73,10 +73,10 @@ questions are continuously visible and always come with a way to act.
 Walk the list top to bottom in this order:
 
 1. Problem Statement
-2. Competitive Research
-3. User Insights
-4. Personas
-5. Interview Script
+2. Interview Script
+3. Competitive Research
+4. User Insights
+5. Personas
 6. Product Document
 
 The first step whose file does not exist is the recommended next step. Tell the user: "Next step: **[step name]**. Ready to start?"
@@ -95,10 +95,10 @@ The user may want to skip a step. Rules:
 
 If the user asks to skip one of these, give the warning ONCE. If they still want to skip after the warning, let them and move to the next step.
 
+- **Interview Script**: "You'll build without ever validating the problem with a real person. That's the fastest way to ship something nobody wants."
 - **Competitive Research**: "You won't know what already exists. You might build something that's already free."
 - **User Insights**: "You'll guess at what users need instead of framing it precisely. Your features will be based on vibes."
 - **Personas**: "You'll design for a generic 'user' instead of a real person with real constraints."
-- **Interview Script**: "You'll have no way to validate your assumptions with real people."
 
 ### Product Document
 
@@ -111,10 +111,10 @@ When the user agrees to a step (or you recommend one and they accept), invoke th
 | Step                 | Skill to invoke                     |
 |----------------------|-------------------------------------|
 | Problem Statement    | `simpleprod:problem-statement`      |
+| Interview Script     | `simpleprod:interview-script`       |
 | Competitive Research | `simpleprod:competitive-research`   |
 | User Insights        | `simpleprod:user-insights`          |
 | Personas             | `simpleprod:personas`               |
-| Interview Script     | `simpleprod:interview-script`       |
 | Product Document     | `simpleprod:product-doc`            |
 
 Use the Skill tool with the skill name from the table above.
