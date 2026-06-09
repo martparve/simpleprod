@@ -3,7 +3,7 @@ name: personas
 description: >
   Builds 2-3 behavioral personas grounded in discovery work. No demographics,
   no fictional backstory, no stock photos. Each persona is a behavioral pattern
-  with real constraints, a goal tied to a JTBD, and a current workaround.
+  with real constraints, a goal tied to a user job, and a current workaround.
 ---
 
 # Personas
@@ -19,7 +19,7 @@ Look for `product/problem-statement.md` in the project root.
 
 ## Step 2: Propose distinct user types
 
-From the problem statement and any JTBD work, propose 2-3 distinct user types. These must be genuinely different people, not variations of the same person.
+From the problem statement and any user-insights work, propose 2-3 distinct user types. These must be genuinely different people, not variations of the same person.
 
 Bad: "Power user" vs "Casual user" (that's a spectrum, not distinct types)
 Good: "Solo founder validating an idea on weekends" vs "PM at a 50-person company managing 3 squads"
@@ -64,11 +64,11 @@ Push for concrete constraints:
 - Skill: not "non-technical" but "comfortable with spreadsheets, won't touch a terminal"
 - Politics: not "organizational friction" but "needs security team sign-off for any new SaaS tool"
 
-### 3c: Goal tied to JTBD
+### 3c: Goal tied to user job
 
 "What progress is this person trying to make? Frame it as: when [situation], I want to [motivation], so I can [outcome]."
 
-If JTBD work exists in `product/jtbd.md`, reference it. The goal should connect to a specific job, not be a generic aspiration.
+If user-insights work exists in `product/user-insights.md`, reference it. The goal should connect to a specific job, not be a generic aspiration.
 
 ### 3d: Current workaround
 

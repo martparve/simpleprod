@@ -44,7 +44,7 @@ Read everything in the `product/` directory. The full set:
 
 **Optional - read if they exist:**
 - `product/competitive-research.md`
-- `product/jtbd.md`
+- `product/user-insights.md`
 - `product/personas.md`
 - `product/interview-script.md`
 
@@ -54,7 +54,7 @@ Track which optional artifacts exist and which were skipped. You'll need this fo
 
 For each optional artifact that does not exist, try to infer what you can from the artifacts that do exist:
 
-- **No JTBD?** Infer jobs from the problem statement and personas (if available). Mark them as `[Inferred from problem statement]`.
+- **No user insights?** Infer jobs from the problem statement and personas (if available). Mark them as `[Inferred from problem statement]`.
 - **No personas?** Infer target users from the problem statement's WHO section. Mark as `[Inferred from problem statement]`.
 - **No competitive research?** Write "Not researched." Do NOT fabricate competitor information.
 - **No interview script?** Ignore - it does not contribute content to the product doc.
@@ -123,7 +123,7 @@ Write the output to `product/PRODUCT.md` using this format:
 [From product/personas.md or inferred from problem statement. If inferred, mark it.]
 
 ## Jobs to be Done
-[From product/jtbd.md or inferred from problem statement. If inferred, mark it.]
+[From product/user-insights.md or inferred from problem statement. If inferred, mark it.]
 
 ## Competitive Landscape
 [From product/competitive-research.md or "Not researched."]

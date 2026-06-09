@@ -20,7 +20,7 @@ Look in the `product/` directory (relative to the project root) for these files:
 |----------------------|-----------------------------------|
 | Problem Statement    | `product/problem-statement.md`    |
 | Competitive Research | `product/competitive-research.md` |
-| Jobs to be Done      | `product/jtbd.md`                 |
+| User Insights        | `product/user-insights.md`        |
 | Personas             | `product/personas.md`             |
 | Interview Script     | `product/interview-script.md`     |
 | Product Document     | `product/PRODUCT.md`              |
@@ -36,7 +36,7 @@ simpleprod - Product Discovery
 ==============================
 [done] Problem Statement        product/problem-statement.md
 [    ] Competitive Research      product/competitive-research.md
-[    ] Jobs to be Done           product/jtbd.md
+[    ] User Insights             product/user-insights.md
 [    ] Personas                  product/personas.md
 [    ] Interview Script          product/interview-script.md
 [    ] Product Document          product/PRODUCT.md
@@ -53,7 +53,7 @@ Walk the list top to bottom in this order:
 
 1. Problem Statement
 2. Competitive Research
-3. Jobs to be Done
+3. User Insights
 4. Personas
 5. Interview Script
 6. Product Document
@@ -75,7 +75,7 @@ The user may want to skip a step. Rules:
 If the user asks to skip one of these, give the warning ONCE. If they still want to skip after the warning, let them and move to the next step.
 
 - **Competitive Research**: "You won't know what already exists. You might build something that's already free."
-- **Jobs to be Done**: "You'll guess at what users need instead of framing it precisely. Your features will be based on vibes."
+- **User Insights**: "You'll guess at what users need instead of framing it precisely. Your features will be based on vibes."
 - **Personas**: "You'll design for a generic 'user' instead of a real person with real constraints."
 - **Interview Script**: "You'll have no way to validate your assumptions with real people."
 
@@ -91,7 +91,7 @@ When the user agrees to a step (or you recommend one and they accept), invoke th
 |----------------------|-------------------------------------|
 | Problem Statement    | `simpleprod:problem-statement`      |
 | Competitive Research | `simpleprod:competitive-research`   |
-| Jobs to be Done      | `simpleprod:jtbd`                   |
+| User Insights        | `simpleprod:user-insights`          |
 | Personas             | `simpleprod:personas`               |
 | Interview Script     | `simpleprod:interview-script`       |
 | Product Document     | `simpleprod:product-doc`            |

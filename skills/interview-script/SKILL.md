@@ -19,7 +19,7 @@ If the problem statement exists, read ALL existing artifacts in `product/`:
 
 - `product/problem-statement.md`
 - `product/competitive-research.md` (if exists)
-- `product/jtbd.md` (if exists)
+- `product/user-insights.md` (if exists)
 - `product/personas.md` (if exists)
 
 These feed the assumption identification step.
