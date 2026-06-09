@@ -9,10 +9,10 @@ simpleprod forces you through structured product discovery before you start codi
 ### Workflows
 
 1. **Problem Statement** - Who has the problem? What is it? Why does it matter?
-2. **Competitive Research** - What already exists? Why is your approach different?
-3. **User Insights** - What progress are your users trying to make? Draft jobs as hypotheses, then ground them in JTBD-style switch interviews. Every job carries a status (hypothesis, supported, refined, contradicted, discovered) so a guess never masquerades as a validated need.
-4. **Personas** - Who specifically are you building for?
-5. **Interview Script** - How would you validate your assumptions?
+2. **Interview Script** - A JTBD-style interview script to validate the problem with real people *before* you build anything downstream. Walks the switch/timeline and the four forces, and includes a kill question.
+3. **Competitive Research** - What already exists? Why is your approach different?
+4. **User Insights** - What progress are your users trying to make? Draft jobs as hypotheses, then ground them in your interview results. Every job carries a status (hypothesis, supported, refined, contradicted, discovered) so a guess never masquerades as a validated need.
+5. **Personas** - Who specifically are you building for?
 6. **Product Document** - Vision + outcome-driven requirements assembled from all the above.
 
 Minimum path: Problem Statement + Product Document.
