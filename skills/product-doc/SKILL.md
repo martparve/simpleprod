@@ -108,20 +108,24 @@ Present the compiled requirements to the user. Ask: "Does this match what you'd 
 
 ## Step 5a: Disposition gate for open questions
 
-Read `product/open-questions.md`. For every item still under `## Open` that is
-tagged `(testable -> ...)`, you must force a decision before writing the product
-doc. Do not hard-block - walk them one at a time with `AskUserQuestion`, one
-question per item, options:
+Read `product/open-questions.md`. For **every** item still under `## Open`, you must
+force a decision before writing the product doc. Do not hard-block - walk them one at
+a time with `AskUserQuestion`, one question per item, options:
 
-- **Answer it now** - the user already knows the answer from real evidence;
-  capture it, check the item off, move it to `## Closed` tagged `(answered)`.
-- **Keep the method** - it genuinely needs the interview/spike/research; leave it
+- **Answer it now** - the user already knows the answer from real evidence; capture
+  it, move it to `## Closed` tagged `(answered)`.
+- **Keep the method** - it genuinely needs the interview/spike/research/test; leave it
   open, it will appear in the product doc's Open Questions as pending.
-- **Accept the risk** - building anyway; move it to `## Closed` tagged
-  `(accepted risk)`.
+- **Accept the risk** - building anyway; move it to `## Closed` tagged `(accepted risk)`.
+- **Revise now** (for `(revise -> X)` items only) - stop and re-run the named skill to
+  fix the contradicted artifact before finishing this doc.
 
-After the walk, the only open `(testable)` items left are ones the user
-consciously chose to keep as pending validation.
+Give `(revise -> X)` items extra weight: building on a contradicted problem statement
+is the exact failure simpleprod exists to prevent. Push hard to revise before
+shipping, but still force a decision rather than hard-blocking.
+
+After the walk, the only open items left are ones the user consciously chose to keep
+as pending.
 
 ## Step 6: Write the artifact
 
