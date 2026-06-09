@@ -51,7 +51,7 @@ the `SKILL.md` files:
   Like the Personality block, it is duplicated on purpose - change one copy, change
   them all. The disposition gate over the register lives in
   `skills/product-doc/SKILL.md`; the surfacing/routing of open questions lives in
-  `skills/simpleprod/SKILL.md`.
+  `skills/simpleprod/SKILL.md`. The register also carries a `revise -> <artifact>` item type: when new evidence contradicts an upstream artifact, a skill logs a revise item naming it, the hub surfaces it first and routes back to that skill, and the gate forces a decision. This is simpleprod's lightweight backward-propagation - no per-artifact status lines.
 - **Implementation guard** (block coding until `problem-statement.md` and
   `PRODUCT.md` exist) - `skills/simpleprod/SKILL.md`.
 - **Superpowers coexistence / handoff** - `skills/product-doc/SKILL.md` hands off
