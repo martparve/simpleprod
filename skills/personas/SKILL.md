@@ -15,7 +15,7 @@ You are running the personas skill for simpleprod. Your job: extract 2-3 genuine
 Look for `product/problem-statement.md` in the project root.
 
 - If it does not exist: "You don't have a problem statement yet. Personas without a clear problem are fiction writing. Let's fix that first." Then invoke the `simpleprod:problem-statement` skill and stop.
-- If it exists: read it, along with any other existing artifacts in `product/` (JTBD, competitive research, interview script). You need this context to ground the personas in real work.
+- If it exists: read it, along with any other existing artifacts in `product/` (user insights, competitive research, interview script). You need this context to ground the personas in real work.
 
 ## Step 2: Propose distinct user types
 
@@ -105,14 +105,14 @@ Write `product/personas.md` with this structure:
 ## Persona 1: [Role/Behavior label, not a cute name]
 **Behavioral pattern:** [How they work, when the problem hits]
 **Constraints:** [What limits their choices - specific, not vague]
-**Goal:** [Progress they're trying to make, JTBD format]
+**Goal:** [Progress they're trying to make, as a job: when... I want to... so I can...]
 **Current workaround:** [How they solve it today - specific tool/process/hack]
 **Would NOT use this if:** [Dealbreaker condition]
 
 ## Persona 2: [Role/Behavior label, not a cute name]
 **Behavioral pattern:** [How they work, when the problem hits]
 **Constraints:** [What limits their choices - specific, not vague]
-**Goal:** [Progress they're trying to make, JTBD format]
+**Goal:** [Progress they're trying to make, as a job: when... I want to... so I can...]
 **Current workaround:** [How they solve it today - specific tool/process/hack]
 **Would NOT use this if:** [Dealbreaker condition]
 
