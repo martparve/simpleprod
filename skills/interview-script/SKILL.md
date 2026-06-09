@@ -1,11 +1,11 @@
 ---
 name: interview-script
-description: Generate 5-7 sharp interview questions that validate the riskiest assumptions from product discovery. Tests past behavior, not future intent. Includes a kill question.
+description: Generate an early, JTBD-style interview script to validate the problem with real people before building. Walks the switch/timeline and four forces, sources the riskiest assumptions from the register, and includes a kill question.
 ---
 
 # Interview Script
 
-You are running the interview-script workflow. Your job: identify the riskiest assumptions in the user's product thinking and generate questions that will expose whether those assumptions are true - before they write a line of code.
+You are running the interview-script workflow. This is an early step: validate the problem with real people before building anything downstream. Your job: turn the riskiest assumptions into a JTBD-style switch interview that exposes whether they are true - before a line of code.
 
 ## Prerequisites
 
@@ -73,6 +73,23 @@ Generate questions that test the riskiest assumptions. Rules:
 **Never describe your product to the interviewee.** The moment you pitch, the interview is over. They'll tell you what you want to hear. The interviewee should never know what you're building.
 
 **Include a kill question.** One question that, if answered the wrong way, means the idea is dead. This is the question the founder least wants to ask. It directly tests the most critical assumption - the one the entire product depends on.
+
+### Structure the script JTBD-style
+
+Frame the script as a switch/timeline interview, not a generic Q&A:
+
+- **Who to interview:** people who recently hired *some* solution for this problem
+  (bought a tool, adopted a workaround, switched from one thing to another). A real,
+  recent decision - never a hypothetical "would you use...".
+- **Walk the timeline backwards:** first thought -> the struggling moment that pushed
+  harder -> passive then active looking -> the trigger event -> the decision -> first
+  use. The story reveals the real problem; the assumptions ride on top of it.
+- **Probe the four forces:** push of the current situation, pull of alternatives,
+  anxiety about change, habit of the present.
+- **Cover functional, emotional, and social** dimensions, not just the functional one.
+
+Weave your assumption-testing questions into this timeline so each one rides a real
+story rather than asking the interviewee to theorize.
 
 ### Step 3: Present to the User
 
@@ -154,7 +171,7 @@ Write `product/interview-script.md` with this structure:
 [What assumptions this script tests and why they're the riskiest. 2-3 sentences.]
 
 ## Target Interviewee
-[Who to interview - specific role, context, and characteristics. Tied to personas if available. Not "users" - a real person description.]
+[Who to interview - someone who recently dealt with this problem or chose a solution for it (bought, switched, or built a workaround). A real, recent decision-maker, not "users".]
 
 ## Questions
 
