@@ -40,6 +40,21 @@ Also check for and read these if they exist (they inform the job drafting but ar
 - `product/competitive-research.md`
 - `product/personas.md`
 
+## Step 1a: Entry router
+
+Read the current state and recommend, but do not force, the next move with
+`AskUserQuestion`:
+
+- `product/user-insights.md` does not exist -> draft hypotheses (Mode A below).
+- It exists with only `Status: Hypothesis` jobs and `product/interviews/` is
+  empty/absent -> offer to generate an interview guide (Mode B) or keep refining.
+- `product/interviews/` contains files -> offer to synthesize them (Mode B).
+
+Put the state-based recommendation first in the options. The user can always
+pick a different mode.
+
+## Mode A: Hypothesis (draft from intent)
+
 ## Step 2: Draft initial jobs
 
 Using the problem statement (and competitive research / personas if available), draft 3-5 JTBD statements in this format:
@@ -90,6 +105,50 @@ Do not accept "all of them" or "they're all important." Force a single pick.
 
 Then ask: "Why that one over the others? What makes it the job people would pay for or switch products for?"
 
+Every job produced in Mode A is recorded with **Status: Hypothesis** until interviews change it.
+
+## Mode B (part 1): Generate an interview guide
+
+For the shakiest or highest-priority untested jobs, generate a Jobs-to-be-Done
+switch/timeline interview guide - not generic questions. Build it around:
+
+- **Who to interview:** people who recently hired *some* solution for this job
+  (bought a tool, adopted a workaround, switched from one thing to another). Never
+  hypotheticals - study a real, recent decision.
+- **The timeline backbone:** first thought -> the struggling moment that pushed
+  harder -> passive looking -> active looking -> the trigger event -> deciding ->
+  first use. Walk it backwards from the decision.
+- **The four forces of progress:** push of the current situation, pull of the new
+  solution, anxiety about the new, habit of the present. Probe all four.
+- **Functional, emotional, and social** dimensions of the job, not just the
+  functional one.
+- A mapping line under each section naming which job(s) it tests.
+
+Write the guide to `product/user-insights-interview-guide.md` so the user can take
+it and run interviews standalone. Then tell the user the guide is ready and that
+they should drop one file per interview into `product/interviews/` and re-run this
+skill to synthesize.
+
+## Mode B (part 2): Synthesize interviews into job status
+
+Read every file in `product/interviews/`. If the folder is empty or absent, ask
+the user to paste their notes instead. For each job, compare the stories to the
+hypothesis and update its status:
+
+- **Supported** - the stories confirm the situation/motivation/outcome. Record the
+  strongest quotes and the forces observed as Evidence.
+- **Refined** - the real trigger or outcome differs. Rewrite the job and keep a
+  `> Refined from:` line with the original.
+- **Contradicted** - no one actually has this job, or they solve it some other way.
+  Keep it in the artifact marked Contradicted (do not silently delete - the kill is
+  the finding).
+- **Discovered** - a job no one hypothesized that recurs across interviews. Add it
+  under `## Discovered Jobs`.
+
+If interviews settled any `(testable -> interview)` items in
+`product/open-questions.md`, check those off and move them to `## Closed` tagged
+`(answered)`.
+
 ## Step 6: Write the artifact
 
 Write the output to `product/user-insights.md` using this format:
@@ -102,19 +161,61 @@ Write the output to `product/user-insights.md` using this format:
 [One paragraph: the primary job and why it matters most. Reference the problem statement.]
 
 ## Primary Job
+**Status:** Hypothesis | Supported (N interviews) | Refined (N interviews) | Contradicted
 **When** [situation], **I want to** [motivation], **so I can** [outcome].
+> Refined from: "[original hypothesis]" — [what interviews changed]   (only if Refined)
+**Evidence:** [quotes / forces observed, or "Untested — hypothesis from problem statement"]
 
 ## Secondary Jobs
-1. **When** [situation], **I want to** [motivation], **so I can** [outcome].
-2. **When** [situation], **I want to** [motivation], **so I can** [outcome].
-[...as many as survived the challenge]
+1. **Status:** [as above]
+   **When** [situation], **I want to** [motivation], **so I can** [outcome].
+   **Evidence:** [as above]
+
+## Discovered Jobs
+[Jobs that emerged only from interviews, same fields as above. Omit the section if none.]
 
 ## Reasoning Trail
 [Key questions and answers that refined the jobs. Include discarded jobs and why they were cut.]
 
-## Open Questions
-[Jobs that weren't fully validated, assumptions baked into the situations, things that need real user input to confirm]
+> Open questions raised: [OQ ids] (see product/open-questions.md)
 ```
+
+## Open Questions: register, don't dump
+
+Do not write a prose `## Open Questions` section in this artifact. Record each
+unresolved unknown in the shared register `product/open-questions.md`.
+
+1. If `product/open-questions.md` does not exist, create it with this skeleton:
+
+   ```markdown
+   # Open Questions
+   > Maintained by simpleprod - the discovery risk register.
+   > Every question exits one way: answered, assigned a method, or accepted as risk.
+
+   ## Open
+
+   ## Closed
+   ```
+
+2. For each unknown, append one line under `## Open`, using the next free `OQ-N`
+   (read the current highest N in the file and add 1):
+
+   ```
+   - [ ] **OQ-N** (TYPE -> METHOD) <question> — _<this-skill-name>_
+   ```
+
+   TYPE -> METHOD is one of:
+   - `testable -> interview` - a behavioral claim a user interview can settle
+   - `technical -> spike` - a feasibility/engineering unknown
+   - `market -> research` - a market or competitor unknown
+   - `pricing -> test` - willingness to pay
+   - `accepted risk` - known, building anyway (place under `## Closed`, checked)
+
+3. Close the artifact with a one-line pointer instead of a section:
+
+   ```
+   > Open questions raised: OQ-1, OQ-4 (see product/open-questions.md)
+   ```
 
 ## Step 7: Return to hub
 
