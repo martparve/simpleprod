@@ -149,6 +149,13 @@ If interviews settled any `(testable -> interview)` items in
 `product/open-questions.md`, check those off and move them to `## Closed` tagged
 `(answered)`.
 
+If interviews **contradict an upstream artifact** (the problem statement, competitive
+research, or personas - e.g. they invalidate the core problem framing or a stated
+assumption), do not silently overwrite it. Append a `(revise -> <artifact>)` item to
+`product/open-questions.md` naming what is now wrong and why, so the hub routes the
+user back to re-run that skill. Example:
+`- [ ] **OQ-12** (revise -> problem-statement) Interviews show an occasional treat, not a weekly chore; the problem statement and its revenue assumptions are now wrong. - _user-insights_`
+
 ## Step 6: Write the artifact
 
 Write the output to `product/user-insights.md` using this format:
