@@ -1,10 +1,10 @@
 ---
 name: user-insights
 description: >
-  Capture what users are trying to get done and ground it in real interviews.
-  Jobs start as the user's own hypotheses and earn a status (supported, refined,
-  contradicted, or discovered) through Jobs-to-be-Done style switch interviews.
-  Use when defining or validating user needs.
+  Capture what users are trying to get done and ground it in real interview
+  results. Jobs start as the user's own hypotheses and earn a status (supported,
+  refined, contradicted, or discovered) by synthesizing the interviews that the
+  interview-script skill produced. Use when defining or validating user needs.
 ---
 
 # User Insights
@@ -45,19 +45,20 @@ Also check for and read these if they exist (they inform the job drafting but ar
 Read the current state and recommend, but do not force, the next move with
 `AskUserQuestion`:
 
-- `product/user-insights.md` does not exist -> draft hypotheses (Mode A below).
-- It exists with only `Status: Hypothesis` jobs and `product/interviews/` is
-  empty/absent -> offer to generate an interview guide (Mode B) or keep refining.
-- `product/interviews/` contains files -> offer to synthesize them (Mode B).
+- No `product/user-insights.md` yet, or `product/interviews/` is empty/absent ->
+  draft job hypotheses (Mode A below).
+- `product/interviews/` contains files -> synthesize them into job status (Mode B
+  below).
 
-Put the state-based recommendation first in the options. The user can always
-pick a different mode.
+Put the state-based recommendation first. The user can always pick the other mode.
+Interviews come from the `interview-script` skill (run early); user-insights does
+not generate its own interview guide.
 
 ## Mode A: Hypothesis (draft from intent)
 
 ## Step 2: Draft initial jobs
 
-Using the problem statement (and competitive research / personas if available), draft 3-5 JTBD statements in this format:
+Using the problem statement (and competitive research, personas, or any interview results in product/interviews/ if available), draft 3-5 JTBD statements in this format:
 
 > "When [situation/trigger], I want to [motivation/action], so I can [desired outcome]."
 
@@ -107,29 +108,7 @@ Then ask: "Why that one over the others? What makes it the job people would pay 
 
 Every job produced in Mode A is recorded with **Status: Hypothesis** until interviews change it.
 
-## Mode B (part 1): Generate an interview guide
-
-For the shakiest or highest-priority untested jobs, generate a Jobs-to-be-Done
-switch/timeline interview guide - not generic questions. Build it around:
-
-- **Who to interview:** people who recently hired *some* solution for this job
-  (bought a tool, adopted a workaround, switched from one thing to another). Never
-  hypotheticals - study a real, recent decision.
-- **The timeline backbone:** first thought -> the struggling moment that pushed
-  harder -> passive looking -> active looking -> the trigger event -> deciding ->
-  first use. Walk it backwards from the decision.
-- **The four forces of progress:** push of the current situation, pull of the new
-  solution, anxiety about the new, habit of the present. Probe all four.
-- **Functional, emotional, and social** dimensions of the job, not just the
-  functional one.
-- A mapping line under each section naming which job(s) it tests.
-
-Write the guide to `product/user-insights-interview-guide.md` so the user can take
-it and run interviews standalone. Then tell the user the guide is ready and that
-they should drop one file per interview into `product/interviews/` and re-run this
-skill to synthesize.
-
-## Mode B (part 2): Synthesize interviews into job status
+## Mode B: Synthesize interviews into job status
 
 Read every file in `product/interviews/`. If the folder is empty or absent, ask
 the user to paste their notes instead. For each job, compare the stories to the
