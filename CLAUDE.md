@@ -21,15 +21,18 @@ artifacts into `product/`.
   | Skill | Artifact |
   |-------|----------|
   | `problem-statement` | `product/problem-statement.md` |
-  | `competitive-research` | `product/competitive-research.md` |
-  | `user-insights` | `product/user-insights.md` (+ `product/user-insights-interview-guide.md` in interview mode) |
-  | `personas` | `product/personas.md` |
   | `interview-script` | `product/interview-script.md` |
+  | `competitive-research` | `product/competitive-research.md` |
+  | `user-insights` | `product/user-insights.md` |
+  | `personas` | `product/personas.md` |
   | `product-doc` | `product/PRODUCT.md` (final; hands off to implementation) |
 
 - A shared risk register, `product/open-questions.md`, is written and read by
   several skills rather than owned by one. Discovery skills append unknowns to it,
   the hub surfaces it, and `product-doc` gates on it.
+- There is one interview step: `interview-script`, run early (step 2) to validate
+  the problem JTBD-style. `user-insights` does not generate interviews; it drafts
+  job hypotheses and synthesizes the interview results.
 
 ## Where runtime behavior lives (and why not here)
 
