@@ -1,53 +1,66 @@
-# simpleprod - Product Management for Hackathons
+# simpleprod - Contributor & Maintainer Guide
 
-simpleprod teaches developers product management by forcing structured discovery before implementation. It guides users through sharp, opinionated multiple-choice questions to extract real product thinking from people who'd rather skip to coding.
+This file is for people developing the simpleprod plugin. **It is not loaded at
+runtime.** Claude Code only auto-loads `CLAUDE.md` from a user's own
+project/home tree, never from an installed plugin's directory - so nothing here
+changes how the plugin behaves for users. Every agent-facing rule must live in
+the skills (see below).
 
-## Detection
+simpleprod teaches developers product management by forcing structured
+discovery before implementation: a hub skill plus six discovery skills that
+interrogate the user through opinionated multiple-choice questions and write
+artifacts into `product/`.
 
-You MUST invoke the `simpleprod` skill before any other response when ANY of these are true:
+## Architecture
 
-- The user signals starting a new project ("let's build X", "I have an idea", "hackathon project", "what should we build", or similar)
-- The user is in a project directory that has no `product/` directory and no existing product artifacts
-- The user returns to a project with an incomplete `product/` directory (some artifacts missing, `product/PRODUCT.md` does not exist)
+- `skills/simpleprod/` - root hub. Shows progress across artifacts, recommends
+  the next step, routes to the other skills, and enforces the implementation
+  guard. Invoked first, and re-invoked after each sub-skill completes.
+- Six discovery skills, run in this order, each writing one artifact to `product/`:
 
-Do NOT invoke simpleprod when:
+  | Skill | Artifact |
+  |-------|----------|
+  | `problem-statement` | `product/problem-statement.md` |
+  | `competitive-research` | `product/competitive-research.md` |
+  | `jtbd` | `product/jtbd.md` |
+  | `personas` | `product/personas.md` |
+  | `interview-script` | `product/interview-script.md` |
+  | `product-doc` | `product/PRODUCT.md` (final; hands off to implementation) |
 
-- The user is explicitly working on implementation and `product/PRODUCT.md` exists
-- The user is debugging, testing, or reviewing code
-- The user explicitly says to skip product work
+## Where runtime behavior lives (and why not here)
 
-## Personality
+Because this file never reaches the model, every agent-facing rule lives inside
+the `SKILL.md` files:
 
-All simpleprod workflows follow these rules. This is not optional - every skill in this plugin uses this personality.
+- **Invocation / detection** - the `description` frontmatter of
+  `skills/simpleprod/SKILL.md`. That frontmatter is the only thing in the system
+  prompt that can trigger the plugin; there is no other detection mechanism.
+- **Personality / how to ask questions** - a `## Personality` block inlined in
+  each of the six discovery skills. The block is identical across all six and is
+  the **single source of truth**. If you change a rule, change it in all six.
+  The most important rule: the `AskUserQuestion` `question` field must teach, not
+  just ask - never a bare label like "WHO".
+- **Implementation guard** (block coding until `problem-statement.md` and
+  `PRODUCT.md` exist) - `skills/simpleprod/SKILL.md`.
+- **Superpowers coexistence / handoff** - `skills/product-doc/SKILL.md` hands off
+  to `superpowers:writing-plans` when Superpowers is installed. simpleprod skills
+  never invoke Superpowers skills otherwise, and never touch implementation,
+  debugging, code review, or testing.
 
-> **Maintainer note:** Claude Code does NOT load a plugin's root `CLAUDE.md` into context at runtime - it only auto-loads CLAUDE.md from the user's own project/home tree. So this block is the human-facing source of truth, but the rules below are also **inlined into every question-asking skill** (`## Personality` section in each `skills/*/SKILL.md`). If you change a rule here, mirror it into each skill, or it won't reach users.
+## Conventions
 
-- **ALWAYS use the AskUserQuestion tool for questions.** Every question must use the `AskUserQuestion` tool to present interactive, selectable options. This renders a navigable UI where users move up/down with arrow keys and select with enter. Rules:
-  - 2-4 options per question. The user can always type a custom answer via "Other."
-  - Put your recommended option first and add "(Recommended)" to its label.
-  - Each option needs a short `label` (1-5 words) and a `description` (why this option, what it means).
-  - Use a short `header` tag (max 12 chars) like "Audience", "Scope", "Priority".
-  - The `question` field must teach, not just ask. Include a brief explanation of what the concept means and why it matters. Example: "Current workaround. How do these people solve this problem today? The existing workaround is your real competitor - not other startups." Not just "How do they solve it today?"
-  - Never print options as text in the chat. Always use the tool.
-- **One question at a time.** One question per message. Never dump multiple questions.
-- **Be opinionated.** Always have a recommendation and explain your reasoning. The user is here to learn product thinking - show them how a PM evaluates options.
-- **No compliments, no validation.** Never say "great idea", "that makes sense", or "interesting." Silence is approval. Move to the next question.
-- **Name the assumption.** When the user states something as fact, call it out as an assumption.
-- **Know when to stop.** When the answers are crisp and specific, move on. Don't ask questions for sport.
+- Each artifact opens with `# Title` and `> Generated by simpleprod - [date]`,
+  and closes with a Reasoning Trail and an Open Questions section.
+- One question at a time, always via the `AskUserQuestion` tool. No compliments,
+  no validation - silence is approval.
+- Use the user's own words in artifacts (especially differentiation claims); do
+  not polish them.
 
-## Coexistence with Obra Superpowers
+## Release process
 
-simpleprod owns product discovery and planning. It does not touch implementation, debugging, code review, or testing.
-
-- If Superpowers is installed, simpleprod hands off to Superpowers' `writing-plans` skill after product work is complete
-- If Superpowers is not installed, simpleprod points the user to `product/PRODUCT.md` and suggests using it as a spec
-- simpleprod skills never invoke Superpowers skills (except the final handoff suggestion in product-doc)
-- Superpowers skills never invoke simpleprod skills
-
-## Implementation Guard
-
-If the user tries to jump to coding, check these before allowing it:
-
-- Does `product/problem-statement.md` exist? If not, push back hard: "You haven't clarified what problem you're solving. That's the fastest way to build something nobody wants. Let's start there."
-- Does `product/PRODUCT.md` exist? If not, push back: "You don't have a product document yet. Without clear outcomes and priorities, you'll build too much or the wrong thing. Let's finish discovery first."
-- If both exist, let them code. Other artifacts (competitive research, JTBD, personas, interview script) are recommended but not mandatory.
+1. Edit skills. If you touched a `## Personality` block, mirror the change across
+   all six discovery skills.
+2. Bump `version` in **both** `.claude-plugin/plugin.json` and
+   `.claude-plugin/marketplace.json`, keeping them equal.
+3. Commit and push to `master`. Plugin updates propagate by version number, so a
+   bump is required for the change to reach anyone. Users update with `/plugin`.
