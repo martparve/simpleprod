@@ -159,7 +159,7 @@ unresolved unknown in the shared register `product/open-questions.md`.
    (read the current highest N in the file and add 1):
 
    ```
-   - [ ] **OQ-N** (TYPE -> METHOD) <question> — _<this-skill-name>_
+   - [ ] **OQ-N** (TYPE -> METHOD) <question> - _<this-skill-name>_
    ```
 
    TYPE -> METHOD is one of:

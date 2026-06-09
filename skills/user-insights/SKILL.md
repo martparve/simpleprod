@@ -163,8 +163,8 @@ Write the output to `product/user-insights.md` using this format:
 ## Primary Job
 **Status:** Hypothesis | Supported (N interviews) | Refined (N interviews) | Contradicted
 **When** [situation], **I want to** [motivation], **so I can** [outcome].
-> Refined from: "[original hypothesis]" — [what interviews changed]   (only if Refined)
-**Evidence:** [quotes / forces observed, or "Untested — hypothesis from problem statement"]
+> Refined from: "[original hypothesis]" - [what interviews changed]   (only if Refined)
+**Evidence:** [quotes / forces observed, or "Untested - hypothesis from problem statement"]
 
 ## Secondary Jobs
 1. **Status:** [as above]
@@ -201,7 +201,7 @@ unresolved unknown in the shared register `product/open-questions.md`.
    (read the current highest N in the file and add 1):
 
    ```
-   - [ ] **OQ-N** (TYPE -> METHOD) <question> — _<this-skill-name>_
+   - [ ] **OQ-N** (TYPE -> METHOD) <question> - _<this-skill-name>_
    ```
 
    TYPE -> METHOD is one of:
