@@ -90,11 +90,47 @@ Write `product/problem-statement.md` with this structure:
 ## Reasoning Trail
 [Key Q&A pairs from the session that led to the statement. Include the sharpest questions and the answers that moved things forward. Skip filler.]
 
-## Open Questions
-[Unvalidated assumptions the statement rests on. Risks identified during questioning. Things the user asserted but hasn't verified with real people.]
+> Open questions raised: [OQ ids] (see product/open-questions.md)
 ```
 
 Use the actual current date in the header.
+
+## Open Questions: register, don't dump
+
+Do not write a prose `## Open Questions` section in this artifact. Record each
+unresolved unknown in the shared register `product/open-questions.md`.
+
+1. If `product/open-questions.md` does not exist, create it with this skeleton:
+
+   ```markdown
+   # Open Questions
+   > Maintained by simpleprod - the discovery risk register.
+   > Every question exits one way: answered, assigned a method, or accepted as risk.
+
+   ## Open
+
+   ## Closed
+   ```
+
+2. For each unknown, append one line under `## Open`, using the next free `OQ-N`
+   (read the current highest N in the file and add 1):
+
+   ```
+   - [ ] **OQ-N** (TYPE -> METHOD) <question> — _<this-skill-name>_
+   ```
+
+   TYPE -> METHOD is one of:
+   - `testable -> interview` - a behavioral claim a user interview can settle
+   - `technical -> spike` - a feasibility/engineering unknown
+   - `market -> research` - a market or competitor unknown
+   - `pricing -> test` - willingness to pay
+   - `accepted risk` - known, building anyway (place under `## Closed`, checked)
+
+3. Close the artifact with a one-line pointer instead of a section:
+
+   ```
+   > Open questions raised: OQ-1, OQ-4 (see product/open-questions.md)
+   ```
 
 ## After Writing
 
