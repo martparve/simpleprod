@@ -19,7 +19,8 @@ Minimum path: Problem Statement + Product Document.
 
 ### Out of scope
 
-1. **Metrics** - Which metrics matter; how to collect and analyze user behaviour data?
+1. **Metrics** - Which metrics matter; how to collect and analyze user behaviour data? 
+2. **Building it out** - simpleprod owns discovery and planning. When your Product Document is ready, hand simpleprod artefacts over to coding skills (eg Obra Superpowers) for planning and implementation. 
 
 ## Install
 
@@ -37,10 +38,6 @@ Restart Claude Code. The plugin activates automatically when you start a new pro
 When you say "let's build X" in Claude Code, simpleprod intercepts and guides you through product discovery. It asks opinionated multiple-choice questions with recommendations, so you learn product thinking by seeing how a PM evaluates options.
 
 All artifacts are saved to a `product/` directory in your project.
-
-## Coexistence with coding skills
-
-simpleprod owns discovery and planning. Coding skills (eg Obra Superpowers) own implementation. When your Product Document is ready, hand simpleprod artefacts over to coding skills for planning and implementation.
 
 ## Uninstall
 
