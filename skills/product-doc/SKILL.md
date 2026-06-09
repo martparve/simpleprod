@@ -47,6 +47,7 @@ Read everything in the `product/` directory. The full set:
 - `product/user-insights.md`
 - `product/personas.md`
 - `product/interview-script.md`
+- `product/open-questions.md` - the open risk register; drives the disposition gate in Step 5a
 
 Track which optional artifacts exist and which were skipped. You'll need this for gap filling.
 
@@ -105,6 +106,23 @@ The test for each capability: "Does this directly contribute to an outcome the u
 
 Present the compiled requirements to the user. Ask: "Does this match what you'd actually build? Anything missing, or anything here that doesn't serve your users?"
 
+## Step 5a: Disposition gate for open questions
+
+Read `product/open-questions.md`. For every item still under `## Open` that is
+tagged `(testable -> ...)`, you must force a decision before writing the product
+doc. Do not hard-block - walk them one at a time with `AskUserQuestion`, one
+question per item, options:
+
+- **Answer it now** - the user already knows the answer from real evidence;
+  capture it, check the item off, move it to `## Closed` tagged `(answered)`.
+- **Keep the method** - it genuinely needs the interview/spike/research; leave it
+  open, it will appear in the product doc's Open Questions as pending.
+- **Accept the risk** - building anyway; move it to `## Closed` tagged
+  `(accepted risk)`.
+
+After the walk, the only open `(testable)` items left are ones the user
+consciously chose to keep as pending validation.
+
 ## Step 6: Write the artifact
 
 Write the output to `product/PRODUCT.md` using this format:
@@ -143,7 +161,9 @@ Write the output to `product/PRODUCT.md` using this format:
 ...
 
 ## Open Questions
-[Unvalidated assumptions, risks, things that need user research]
+[Snapshot from product/open-questions.md: list each accepted-risk item and each
+still-pending validation item with its method. Do not invent new prose risks here
+- this section mirrors the register.]
 ```
 
 Use the actual current date in the header. Use the real product name from the artifacts (or ask the user if none is established).
