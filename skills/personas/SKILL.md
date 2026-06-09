@@ -142,14 +142,18 @@ unresolved unknown in the shared register `product/open-questions.md`.
    ```markdown
    # Open Questions
    > Maintained by simpleprod - the discovery risk register.
-   > Every question exits one way: answered, assigned a method, or accepted as risk.
+   > Every question exits one way: answered, revised, assigned a method, or accepted as risk.
 
    ## Open
 
    ## Closed
    ```
 
-2. For each unknown, append one line under `## Open`, using the next free `OQ-N`
+2. Before adding anything, read the existing items. If your unknown is a
+   near-duplicate of an open item, refine or extend that item instead of adding a new
+   one. Only create a new `OQ-N` for a genuinely new unknown.
+
+3. To add a new unknown, append one line under `## Open`, using the next free `OQ-N`
    (read the current highest N in the file and add 1):
 
    ```
@@ -161,9 +165,14 @@ unresolved unknown in the shared register `product/open-questions.md`.
    - `technical -> spike` - a feasibility/engineering unknown
    - `market -> research` - a market or competitor unknown
    - `pricing -> test` - willingness to pay
+   - `revise -> <artifact>` - new evidence contradicts an upstream artifact (e.g.
+     `revise -> problem-statement`); re-run that skill to fix it
    - `accepted risk` - known, building anyway (place under `## Closed`, checked)
 
-3. Close the artifact with a one-line pointer instead of a section:
+   When an item is resolved, move it to `## Closed` and mark how: `(answered)`,
+   `(revised)`, or `(accepted risk)`.
+
+4. Close the artifact with a one-line pointer instead of a section:
 
    ```
    > Open questions raised: OQ-1, OQ-4 (see product/open-questions.md)
