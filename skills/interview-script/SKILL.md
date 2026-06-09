@@ -182,9 +182,13 @@ Write `product/interview-script.md` with this structure:
 ## Reasoning Trail
 [How assumptions were identified from existing artifacts. Which artifacts contributed what. Why certain assumptions were ranked as riskiest.]
 
-## Open Questions
-[Assumptions that can't be tested in interviews - market size, technical feasibility, regulatory constraints, etc. Things that need other validation methods.]
+> Open questions raised: [OQ ids] (see product/open-questions.md)
 ```
+
+Assumptions that can't be tested in interviews - market size, technical
+feasibility, regulatory constraints - go into the register with their own method
+tag (`technical -> spike`, `market -> research`, `pricing -> test`), not into a
+prose section here.
 
 Use the actual current date in the header.
 
