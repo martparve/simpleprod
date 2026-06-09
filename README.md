@@ -1,12 +1,12 @@
 # simpleprod
 
-Product management for hackathons. A Claude Code plugin that stops you from building for a non-existent problem, or miss the problem with your build. 
+Product Management skills for POC-s, hackathons and other small projects. A Claude Code plugin that stops you from building for a non-existent problem, or miss the problem with your build. 
 
 ## What it does
 
 simpleprod forces you through structured product discovery before you start coding. It asks hard questions, challenges your assumptions, and won't let you skip to implementation until you've clarified what you're building and why.
 
-## Workflows
+### Workflows
 
 1. **Problem Statement** - Who has the problem? What is it? Why does it matter?
 2. **Competitive Research** - What already exists? Why is your approach different?
@@ -16,6 +16,10 @@ simpleprod forces you through structured product discovery before you start codi
 6. **Product Document** - Vision + outcome-driven requirements assembled from all the above.
 
 Minimum path: Problem Statement + Product Document.
+
+### Out of scope
+
+1. **Metrics** - Which metrics matter; how to collect and analyze user behaviour data?
 
 ## Install
 
