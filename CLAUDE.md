@@ -33,6 +33,12 @@ artifacts into `product/`.
 - There is one interview step: `interview-script`, run early (step 2) to validate
   the problem JTBD-style. `user-insights` does not generate interviews; it drafts
   job hypotheses and synthesizes the interview results.
+- Interview notes/transcripts are an any-time input in `product/interviews/` (one
+  file per interview, or pasted into chat and persisted there). `user-insights` is
+  the single synthesis engine: it processes only files whose first line lacks
+  `simpleprod: synthesized`, then stamps each handled file with that marker. The hub
+  counts new vs handled interviews and nudges the user to interview (when testable
+  questions are open) and to synthesize (when new interviews arrive).
 
 ## Where runtime behavior lives (and why not here)
 
