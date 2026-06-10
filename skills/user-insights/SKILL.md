@@ -121,9 +121,12 @@ Every job produced in Mode A is recorded with **Status: Hypothesis** until inter
 
 ## Mode B: Synthesize interviews into job status
 
-Read every file in `product/interviews/`. If the folder is empty or absent, ask
-the user to paste their notes instead. For each job, compare the stories to the
-hypothesis and update its status:
+Read the interview files in `product/interviews/`, ignoring `README.md` and any file
+whose name starts with `_`. A file is **new** if its first line does not contain
+`simpleprod: synthesized`; process only new files. If there are no new files but the
+user pasted notes into chat, first write the paste to a new file in
+`product/interviews/` (e.g. `interview-pasted-1.md`), then process it. For each new
+interview, compare the stories to each job's hypothesis and update its status:
 
 - **Supported** - the stories confirm the situation/motivation/outcome. Record the
   strongest quotes and the forces observed as Evidence.
@@ -145,6 +148,12 @@ assumption), do not silently overwrite it. Append a `(revise -> <artifact>)` ite
 `product/open-questions.md` naming what is now wrong and why, so the hub routes the
 user back to re-run that skill. Example:
 `- [ ] **OQ-12** (revise -> problem-statement) Interviews show an occasional treat, not a weekly chore; the problem statement and its revenue assumptions are now wrong. - _user-insights_`
+
+Once you have incorporated an interview into the jobs, mark it handled: prepend this
+exact line as the new first line of that interview file, using today's date, so it is
+never re-processed and the hub can see it is done:
+
+> [simpleprod: synthesized YYYY-MM-DD]
 
 ## Step 6: Write the artifact
 
