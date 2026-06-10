@@ -60,13 +60,24 @@ not generate its own interview guide.
 
 Using the problem statement (and competitive research, personas, or any interview results in product/interviews/ if available), draft 3-5 JTBD statements in this format:
 
-> "When [situation/trigger], I want to [motivation/action], so I can [desired outcome]."
+> "When [situation/trigger], I want to [verb - the action they take], so I can [desired outcome]."
+
+The middle clause must start with a verb. "I want to [a noun]" is malformed (see the Form check below).
 
 Present them **one at a time**. After presenting each job, immediately challenge it before moving to the next.
 
 ## Step 3: Challenge each job
 
 For every job, run these checks. Ask the user directly - do not answer for them:
+
+### Form check
+First, is it even shaped like a job? It must read grammatically as "When
+[situation], I want to **[verb]**, so I can [outcome]." If the middle clause is a
+noun - "I want to **a cheap treat**", "I want to **a faster itinerary**" - it is
+malformed: "I want to" has no action. Rewrite it with a verb ("I want to **reward**
+my kids cheaply", "I want to **get** a faster first draft"). A job that is not a
+verb phrase is usually a hidden solution or a vague wish. Fix the form before
+judging the content.
 
 ### Situation check
 Is the trigger specific enough? "When I'm working" is garbage. "When I'm switching between three client projects before lunch" is real. If the situation could apply to anyone doing anything, it's too vague.
@@ -148,13 +159,13 @@ Write the output to `product/user-insights.md` using this format:
 
 ## Primary Job
 **Status:** Hypothesis | Supported (N interviews) | Refined (N interviews) | Contradicted
-**When** [situation], **I want to** [motivation], **so I can** [outcome].
+**When** [situation], **I want to** [verb - what they do], **so I can** [outcome].
 > Refined from: "[original hypothesis]" - [what interviews changed]   (only if Refined)
 **Evidence:** [quotes / forces observed, or "Untested - hypothesis from problem statement"]
 
 ## Secondary Jobs
 1. **Status:** [as above]
-   **When** [situation], **I want to** [motivation], **so I can** [outcome].
+   **When** [situation], **I want to** [verb - what they do], **so I can** [outcome].
    **Evidence:** [as above]
 
 ## Discovered Jobs
@@ -230,4 +241,9 @@ Use this to calibrate your challenges:
 - Motivation: concrete information need (blocked vs. ready)
 - Outcome: observable behavior change (focused time on unblocked work)
 
-Every job should be closer to the strong example than the weak one. If it's not, keep challenging.
+**Malformed:** "When I need leverage over my kids, I want to a cheap treat they crave, so I can buy good behavior."
+- The middle clause is a noun ("a cheap treat"), not an action - "I want to" has no verb.
+- Fix: "I want to **promise** a cheap treat they crave" or "I want to **reward** them cheaply".
+
+Every job should be closer to the strong example than the weak one, and never
+malformed. If it's not, keep challenging.

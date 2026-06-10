@@ -1,7 +1,7 @@
 {
   "name": "simpleprod",
   "description": "Hackathon product management - teaches developers product thinking through opinionated multiple-choice questioning before they write code",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": {
     "name": "Mart Parve",
     "email": "mparve@gmail.com"
