@@ -41,32 +41,37 @@ simpleprod - Product Discovery
 [    ] Personas                  product/personas.md
 [    ] Product Document          product/PRODUCT.md
 Open questions: [M] open / [K] closed   product/open-questions.md
+Interviews: [N] total, [P] new (not yet synthesized)   product/interviews/
 
 Minimum path: Problem Statement + Product Document
 Recommended:  All steps in order
 ```
 
-Replace `[done]` or `[    ]` for each row based on actual file presence. The example above is just a template - fill it in from real data. Read `product/open-questions.md` if it exists; M = items under `## Open`, K = items under `## Closed`. Every open item is unresolved and needs attention. If the file does not exist, show `Open questions: 0 open / 0 closed`.
+Replace `[done]` or `[    ]` for each row based on actual file presence. The example above is just a template - fill it in from real data. Read `product/open-questions.md` if it exists; M = items under `## Open`, K = items under `## Closed`. Every open item is unresolved and needs attention. If the file does not exist, show `Open questions: 0 open / 0 closed`. For interviews, read `product/interviews/` (ignore `README.md` and `_`-prefixed files): N = total interview files, P = those whose first line does not contain `simpleprod: synthesized`. If the folder does not exist, show `Interviews: 0 total, 0 new`.
 
-## Step 2a: Surface open questions and route
+## Step 2a: Surface open questions, interviews, and route
 
-If `product/open-questions.md` exists and has items under `## Open`, surface them here -
-do not make the user open the file:
+If `product/open-questions.md` has items under `## Open`, or `product/interviews/`
+has files, surface them here - do not make the user open the files. Recommend an
+opinionated next action with `AskUserQuestion`, in this priority order:
 
-1. Show the count and the top few most pressing items. Order: `(revise -> X)` items
-   first (a contradicted upstream artifact outranks an untested assumption), then
-   testable-and-unanswered items. Cap at 3-4 lines.
-2. Recommend an opinionated next action that routes into the skill which closes the
-   item, using `AskUserQuestion`. Mapping:
-   - `revise -> <artifact>` -> route back to that skill (`simpleprod:<artifact>`) to
-     revise it. Highest priority.
-   - `testable -> interview` about user needs -> `simpleprod:user-insights` (interview mode).
-   - `testable -> interview` about a riskiest assumption broadly -> `simpleprod:interview-script`.
-   - `technical -> spike` / `market -> research` / `pricing -> test` -> tell the user
-     this needs work outside simpleprod; leave it open, do not route.
+1. **New interviews waiting** (P > 0 from the tracker): "You have P new interviews.
+   Synthesize them now (run `simpleprod:user-insights`) so they inform the rest of
+   the work." This outranks the linear next step - the sooner interviews are
+   consumed, the more informed everything downstream is.
+2. **`(revise -> X)` items**: a contradicted upstream artifact - route back to that
+   skill (`simpleprod:<artifact>`) to revise it.
+3. **Open `(testable -> interview)` items**: these are interviews worth doing.
+   Surface the actual questions: "These N questions can only be answered by real
+   people - here they are. Want to interview? Your script is at
+   `product/interview-script.md` (run `simpleprod:interview-script` if you need one)."
+4. **Other open items** (`technical -> spike` / `market -> research` /
+   `pricing -> test`): tell the user this needs work outside simpleprod; leave open,
+   do not route.
 
-This runs every time the hub is invoked (session start and after each skill), so open
-questions are continuously visible and always come with a way to act.
+Cap the surfaced list at 3-4 lines. This runs every time the hub is invoked, so
+interviews and open questions are continuously visible and always come with a way to
+act.
 
 ## Step 3: Recommend the next step
 
