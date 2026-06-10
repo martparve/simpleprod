@@ -220,4 +220,21 @@ Use the actual current date in the header.
 
 ## After Writing
 
-Invoke the `simpleprod` root skill to show the user their updated progress across all workflows.
+First, create `product/interviews/` if it does not exist, and write
+`product/interviews/README.md` if absent:
+
+```markdown
+# Interviews
+Put one interview per file here - notes or transcript, any format. simpleprod picks
+them up automatically and stamps each once it has been synthesized into user
+insights. Add more at any time; the sooner, the better.
+```
+
+Then show the user this reminder verbatim and prominently:
+
+> **Your interview script is ready at `product/interview-script.md`.**
+> Now go talk to people. Save each interview (notes or transcript, any format) as a
+> file in `product/interviews/`, or paste it into chat. Do it soon - until you do,
+> the rest of your discovery is running on assumptions. You can add more at any time.
+
+Then invoke the `simpleprod` root skill to show updated progress.
