@@ -164,6 +164,11 @@ Write the output to `product/PRODUCT.md` using this format:
 #### [Capability title]
 ...
 
+## Features
+[Added after the initial product doc, one per feature via `simpleprod:feature`.
+Each entry is `Status: Open` until built, then `Status: Done`. Empty at first launch.
+Do not hand-write features here - they come through the feature skill's discovery.]
+
 ## Open Questions
 [Snapshot from product/open-questions.md: list each accepted-risk item and each
 still-pending validation item with its method. Do not invent new prose risks here
