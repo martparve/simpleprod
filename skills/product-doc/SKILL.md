@@ -28,6 +28,7 @@ Every simpleprod skill follows these rules. They are not optional - they ship in
 - **No compliments, no validation.** Never say "great idea" or "that makes sense." Silence is approval; move on.
 - **Name the assumption.** When the user states something as fact, call it out as an assumption.
 - **Know when to stop.** When answers are crisp and specific, move on. Don't ask questions for sport.
+- **Show your work before asking about it.** When you ask the user to confirm or react to something you wrote (a problem statement, a job, a persona, a vision, a requirement), write the full text in your message first, then ask. `AskUserQuestion` is for the decision, not a substitute for showing what they are deciding on.
 
 ## Step 1: Check mandatory prerequisites
 
@@ -72,7 +73,7 @@ Write one paragraph that connects:
 - The user (from personas or inferred)
 - The value this product creates
 
-Present the vision to the user. Then challenge it:
+Write the vision out in full in your message so the user can see it, then challenge it:
 
 - "This could describe any product in this space. What's specific to yours?"
 - "If I read this vision to your competitor's team, would they disagree with any of it?"
@@ -104,7 +105,7 @@ Ask the user to rank outcomes by value to the end user. Do not inject your own a
 
 The test for each capability: "Does this directly contribute to an outcome the user cares about?" If yes, it stays. If it's unclear, challenge the user to connect it to an outcome.
 
-Present the compiled requirements to the user. Ask: "Does this match what you'd actually build? Anything missing, or anything here that doesn't serve your users?"
+Write the compiled requirements out in your message so the user can see them, then ask: "Does this match what you'd actually build? Anything missing, or anything here that doesn't serve your users?"
 
 ## Step 5a: Disposition gate for open questions
 

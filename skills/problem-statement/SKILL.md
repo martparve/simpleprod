@@ -41,6 +41,7 @@ Every simpleprod skill follows these rules. They are not optional - they ship in
 - **No compliments, no validation.** Never say "great idea" or "that makes sense." Silence is approval; move on.
 - **Name the assumption.** When the user states something as fact, call it out as an assumption.
 - **Know when to stop.** When answers are crisp and specific, move on. Don't ask questions for sport.
+- **Show your work before asking about it.** When you ask the user to confirm or react to something you wrote (a problem statement, a job, a persona, a vision, a requirement), write the full text in your message first, then ask. `AskUserQuestion` is for the decision, not a substitute for showing what they are deciding on.
 
 ### Starting the Session
 
@@ -70,7 +71,7 @@ Track which of the six elements (WHO, WHAT, HOW BAD, HOW NOW, SO WHAT, WHY PAY) 
 
 ### Synthesizing
 
-When you have enough clarity, write the statement yourself. Do not ask the user to write it. Present it and ask: "Is this the problem, or did I miss something?"
+When you have enough clarity, write the statement yourself. Do not ask the user to write it. Write the full problem statement out in your message so the user can read it, then ask: "Is this the problem, or did I miss something?"
 
 If they say yes, produce the artifact. If they correct it, adjust and confirm again.
 
