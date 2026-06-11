@@ -39,6 +39,11 @@ artifacts into `product/`.
   `simpleprod: synthesized`, then stamps each handled file with that marker. The hub
   counts new vs handled interviews and nudges the user to interview (when testable
   questions are open) and to synthesize (when new interviews arrive).
+- `skills/feature/` - a parallel mode for existing products. Once `product/PRODUCT.md`
+  exists, a new feature goes through `simpleprod:feature` (scoped discovery from the
+  feature's own problem + register the riskiest assumption) and lands in PRODUCT.md's
+  `## Features` backlog as `Status: Open`, flipped to `Status: Done` when built. The
+  greenfield six are untouched; the hub routes to it when a product already exists.
 
 ## Where runtime behavior lives (and why not here)
 
@@ -49,14 +54,16 @@ the `SKILL.md` files:
   `skills/simpleprod/SKILL.md`. That frontmatter is the only thing in the system
   prompt that can trigger the plugin; there is no other detection mechanism.
 - **Personality / how to ask questions** - a `## Personality` block inlined in
-  each of the six discovery skills. The block is identical across all six and is
-  the **single source of truth**. If you change a rule, change it in all six.
+  each of the six discovery skills and the `feature` skill. The block is identical
+  across all seven and is the **single source of truth**. If you change a rule,
+  change it in all seven.
   The most important rule: the `AskUserQuestion` `question` field must teach, not
   just ask - never a bare label like "WHO".
 - **Open-questions register protocol** - a second inlined block (`## Open
   Questions: register, don't dump`) telling a skill how to append unknowns to
   `product/open-questions.md`. It is mirrored across `problem-statement`,
-  `competitive-research`, `user-insights`, `personas`, and `interview-script`.
+  `competitive-research`, `user-insights`, `personas`, `interview-script`, and
+  `feature`.
   Like the Personality block, it is duplicated on purpose - change one copy, change
   them all. The disposition gate over the register lives in
   `skills/product-doc/SKILL.md`; the surfacing/routing of open questions lives in
@@ -83,8 +90,8 @@ the `SKILL.md` files:
 
 1. Edit skills. If you touched a `## Personality` block or the `## Open Questions:
    register, don't dump` block, mirror the change across every skill that carries
-   it (Personality: all six discovery skills; register protocol: the five listed
-   above).
+   it (Personality: the six discovery skills plus `feature`; register protocol: the
+   five listed above plus `feature`).
 2. Bump `version` in **both** `.claude-plugin/plugin.json` and
    `.claude-plugin/marketplace.json`, keeping them equal.
 3. Commit and push to `master`. Plugin updates propagate by version number, so a
