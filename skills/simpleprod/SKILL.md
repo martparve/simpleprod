@@ -86,7 +86,23 @@ Walk the list top to bottom in this order:
 
 The first step whose file does not exist is the recommended next step. Tell the user: "Next step: **[step name]**. Ready to start?"
 
-If all files exist, congratulate them and suggest moving to implementation. If Superpowers is installed, suggest the `writing-plans` skill for implementation planning. If not, point them to `product/PRODUCT.md` as their spec.
+If `product/PRODUCT.md` exists, the product is established - switch to feature-backlog mode (Step 3a) rather than treating discovery as merely finished. (Any greenfield steps that were skipped remain available, but a live product's day-to-day is features.)
+
+## Step 3a: Feature backlog (when PRODUCT.md exists)
+
+Once `product/PRODUCT.md` exists, the hub also manages features. Read the `## Features`
+section of PRODUCT.md and show the backlog count, e.g. `Features: 3 (2 Open, 1 Done)` -
+Open/Done counted from each entry's `Status:` line; if there is no `## Features`
+section, show `Features: 0`.
+
+Then offer, via `AskUserQuestion`:
+- **Add a feature** -> invoke `simpleprod:feature`. It runs scoped discovery from the
+  feature's own problem and writes a new `Status: Open` entry.
+- **Mark a feature Done** -> flip an Open entry's `Status: Open` to `Status: Done` (the
+  user confirms it is built).
+
+A feature is never written into PRODUCT.md directly; it always goes through
+`simpleprod:feature` first.
 
 ## Step 4: Handle skips
 
@@ -121,6 +137,7 @@ When the user agrees to a step (or you recommend one and they accept), invoke th
 | User Insights        | `simpleprod:user-insights`          |
 | Personas             | `simpleprod:personas`               |
 | Product Document     | `simpleprod:product-doc`            |
+| Feature (existing product) | `simpleprod:feature`          |
 
 Use the Skill tool with the skill name from the table above.
 
@@ -135,3 +152,4 @@ If the user tries to jump to coding at any point, check:
 1. Does `product/problem-statement.md` exist? If not: "You haven't clarified what problem you're solving. That's the fastest way to build something nobody wants. Let's start there."
 2. Does `product/PRODUCT.md` exist? If not: "You don't have a product document yet. Without clear outcomes and priorities, you'll build too much or the wrong thing. Let's finish discovery first."
 3. If both exist, let them code. The other artifacts are recommended but not mandatory.
+4. For a new feature on an existing product (PRODUCT.md already exists): it must be a `Status: Open` entry in PRODUCT.md's `## Features` with acceptance criteria before it is built. If the user wants to code a feature that isn't there yet, route to `simpleprod:feature` first - discovery before code, same as the product.
