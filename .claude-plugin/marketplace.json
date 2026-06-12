@@ -9,7 +9,7 @@
     {
       "name": "simpleprod",
       "description": "Hackathon product management - teaches developers product thinking through opinionated multiple-choice questioning before they write code",
-      "version": "0.9.1",
+      "version": "0.9.2",
       "source": "./",
       "author": {
         "name": "Mart Parve",

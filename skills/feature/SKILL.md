@@ -30,7 +30,7 @@ Every simpleprod skill follows these rules. They are not optional - they ship in
 - **No compliments, no validation.** Never say "great idea" or "that makes sense." Silence is approval; move on.
 - **Name the assumption.** When the user states something as fact, call it out as an assumption.
 - **Know when to stop.** When answers are crisp and specific, move on. Don't ask questions for sport.
-- **Show your work before asking about it.** When you ask the user to confirm or react to something you wrote (a problem statement, a job, a persona, a vision, a requirement), write the full text in your message first, then ask. `AskUserQuestion` is for the decision, not a substitute for showing what they are deciding on.
+- **Show your work before asking about it.** When you ask the user to confirm or react to something you wrote (a problem statement, a job, a persona, a vision, a requirement), write the full text in your message first, then ask. `AskUserQuestion` is for the decision, not a substitute for showing what they are deciding on. Keep the question field short (a line or two); the terminal truncates long question text, so the detail belongs in your message, not the field.
 
 ## Step 1: Check prerequisites
 

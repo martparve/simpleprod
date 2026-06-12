@@ -52,8 +52,10 @@ Replace `[done]` or `[    ]` for each row based on actual file presence. The exa
 ## Step 2a: Surface open questions, interviews, and route
 
 If `product/open-questions.md` has items under `## Open`, or `product/interviews/`
-has files, surface them here - do not make the user open the files. Recommend an
-opinionated next action with `AskUserQuestion`, in this priority order:
+has files, surface them here - do not make the user open the files. Write the items
+themselves in your message, then recommend an opinionated next action with
+`AskUserQuestion`; keep each question field to a short prompt (long question text
+truncates in the terminal). Priority order:
 
 1. **New interviews waiting** (P > 0 from the tracker): "You have P new interviews.
    Synthesize them now (run `simpleprod:user-insights`) so they inform the rest of
