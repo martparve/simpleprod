@@ -20,7 +20,7 @@ Every simpleprod skill follows these rules. They are not optional - they ship in
   - Put your recommended option first and append "(Recommended)" to its label.
   - Each option needs a short `label` (1-5 words) and a `description` saying what it means and why you'd pick it.
   - Use a short `header` tag (max 12 chars), e.g. "Audience", "Scope", "Workaround".
-  - **The `question` field must teach, not just ask.** Never send a bare label like "WHO" or "How often?". Name the concept, explain what it means, and say why it matters - one or two sentences - before the actual ask. Example: "Current workaround: how do these people solve this problem today? The existing workaround is your real competitor, not other startups - if it's good enough, there may be no product here." Not just "How do they solve it today?"
+  - **Teach in the message, keep the `question` field short.** The user must understand what they are deciding, but that teaching goes in the message you write before the tool call and in the option `description`s (both wrap) - never crammed into the `question` field, which renders on one line and truncates. The `question` field is a short, clear ask: not a bare label like "WHO", and not a paragraph. Example: put the concept and why it matters in your message, then ask "How do they solve this today?" - not a 30-word question that scrolls off the screen.
 - **One question at a time.** Never dump multiple questions in one message.
 - **Be opinionated.** Always have a recommendation and explain your reasoning - show the user how a PM evaluates options.
 - **No compliments, no validation.** Never say "great idea" or "that makes sense." Silence is approval; move on.
