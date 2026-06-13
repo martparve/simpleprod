@@ -132,6 +132,33 @@ shipping, but still force a decision rather than hard-blocking.
 After the walk, the only open items left are ones the user consciously chose to keep
 as pending.
 
+## Step 5b: Define the product conception
+
+Now pin down the concrete shape of the product - what the built thing actually is.
+This complements the value-driven outcomes; it does not replace them and must not
+become a feature dump. Every choice should trace to an outcome or a real constraint.
+
+Draft a proposed conception from the problem, the target users, and the outcomes from
+Step 5. Then settle the choices that cannot be inferred - one at a time, with a short
+`AskUserQuestion` question field and the detail in your message:
+
+- **Form factor & platform** - what kind of thing it is (web app, mobile app, CLI,
+  desktop app, browser extension, API/service, bot) and which platforms.
+- **Look & feel** - the design direction: visual style, tone, and the two or three UX
+  principles that define the experience. Push for concrete ("keyboard-first, dark,
+  sub-second"), never "clean and modern".
+- **Deployment & delivery** - how it is hosted and how users get it (cloud SaaS,
+  self-hosted, app store, on-device, package), plus must-work-with integrations or hard
+  constraints.
+
+Core functionality is derived from the outcomes already agreed - list the concrete
+capabilities and confirm scope (what is in the first real version, what is deliberately
+out) rather than asking from scratch.
+
+Challenge vagueness the way the rest of this skill does: "clean UI" -> which style and
+why; "the cloud" -> which model; "it does X" -> in the first version or later? Write the
+drafted conception out in full in your message, then confirm before writing the artifact.
+
 ## Step 6: Write the artifact
 
 Write the output to `product/PRODUCT.md` using this format:
@@ -168,6 +195,12 @@ Write the output to `product/PRODUCT.md` using this format:
 ### [Outcome 2: description]
 #### [Capability title]
 ...
+
+## Product Conception
+**Form factor & platform:** [what it is, where it runs]
+**Look & feel:** [visual style, tone, 2-3 defining UX principles]
+**Core functionality:** [concrete capabilities; what's in v1 vs out]
+**Deployment & delivery:** [hosting, distribution, key integrations/constraints]
 
 ## Features
 [Added after the initial product doc, one per feature via `simpleprod:feature`.
