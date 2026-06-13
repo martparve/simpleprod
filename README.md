@@ -13,13 +13,21 @@ simpleprod forces you through structured product discovery before you start codi
 3. **Competitive Research** - What already exists? Why is your approach different?
 4. **User Insights** - What progress are your users trying to make? Draft jobs as hypotheses, then ground them in your interview results. Every job carries a status (hypothesis, supported, refined, contradicted, discovered) so a guess never masquerades as a validated need.
 5. **Personas** - Who specifically are you building for?
-6. **Product Document** - Vision + outcome-driven requirements assembled from all the above.
+6. **Product Document** - Vision + outcome-driven requirements assembled from all the above, plus a concrete **Product Conception** (form factor and platform, look & feel, functionality scope, deployment) so the built thing is actually picturable - not just a list of outcomes.
 
 Minimum path: Problem Statement + Product Document.
 
 ### Open questions don't get lost
 
 Every unvalidated assumption raised during discovery goes into a shared register (`product/open-questions.md`) instead of dying at the bottom of a document. The hub surfaces them as you work and routes you to whatever closes them. Before it assembles the Product Document, simpleprod forces a decision on each testable one: answer it, plan how to validate it, or knowingly accept the risk. Nothing reaches the final doc as a silent guess.
+
+### Interviews are a first-class input
+
+You can drop interview notes or transcripts into `product/interviews/` (or paste them into chat) at any point. simpleprod picks them up automatically, synthesizes them into your jobs, and stamps each one as handled - and if an interview contradicts an earlier artifact, it routes you back to fix that instead of quietly papering over it.
+
+### Already have a product? Add features the same way
+
+Once a Product Document exists, simpleprod switches to feature mode. A new feature isn't bolted into the doc directly - it goes through its own scoped discovery from the feature's own problem, its riskiest assumption gets validated like anything else, and it lands in the Product Document's Features backlog as `Status: Open`, flipped to `Done` when built.
 
 ### Out of scope
 
